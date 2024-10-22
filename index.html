@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Data Storage</title>
+    <title>Trang của tôi</title>
+
+    <!-- JavaScript để tải tệp -->
+    <script>
+        function downloadFile() {
+            // Lấy tên tệp từ ô nhập
+            const fileName = document.getElementById("fileNameInput").value;
+            if (!fileName) {
+                alert("Vui lòng nhập tên tệp!");
+                return;
+            }
+
+            // Tạo URL GitHub (chỉnh sửa để phù hợp với repo của bạn)
+            const url = `https://raw.githubusercontent.com/<user>/<repo>/main/Addressables/${fileName}`;
+
+            // Tạo một thẻ <a> để tải tệp
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = fileName;
+            link.click();
+        }
+    </script>
 </head>
 <body>
-    <h1>Xin chào!!</h1>
-    <p>Đây sẽ là nơi lưu trữ dữ liệu game!!</p>
+    <h1>Chào mừng đến trang của tôi!</h1>
+
+    <!-- Ô nhập và nút tải tài nguyên -->
+    <input type="text" id="fileNameInput" placeholder="Nhập tên tệp" />
+    <button onclick="downloadFile()">Tải tệp</button>
+
 </body>
 </html>
